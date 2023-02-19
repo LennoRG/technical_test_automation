@@ -1,0 +1,16 @@
+{
+    "name_user":{
+        "GetFieldBy": "Id",
+        "ValueToFind": "user-name"
+    },
+    
+    "pwd_user":{
+        "GetFieldBy": "Id",
+        "ValueToFind": "password"
+    },
+
+    "login_btn":{
+        "GetFieldBy": "Id",
+        "ValueToFind": "login-button"
+    }
+}
