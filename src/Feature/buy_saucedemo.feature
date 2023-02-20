@@ -6,3 +6,4 @@ Feature: Buy Saucedemo
      When Load the data json
      Then Enter user credentials
      Then Tap on the login button
+     Then Add products to cart

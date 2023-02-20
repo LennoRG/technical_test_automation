@@ -151,22 +151,22 @@ class Functions(Inicializar):
         else:
             try:
                 if self.json_GetFieldBy.lower() == "id":
-                    elements = self.driver.find_element_by_id(self.json_ValueToFind)
+                    elements = self.driver.find_element(By.ID, self.json_ValueToFind)
 
                 if self.json_GetFieldBy.lower() == "name":
-                    elements = self.driver.find_element_by_name(self.json_ValueToFind)
+                    elements = self.driver.find_element(By.NAME, self.json_ValueToFind)
 
                 if self.json_GetFieldBy.lower() == "xpath":
                     if MyTextElement is not None:
                         self.json_ValueToFind = self.json_ValueToFind.format(MyTextElement)
                         print(self.json_ValueToFind)
-                    elements = self.driver.find_element_by_xpath(self.json_ValueToFind)
+                    elements = self.driver.find_element(By.XPATH, self.json_ValueToFind)
 
                 if self.json_GetFieldBy.lower() == "link":
-                    elements.find_element_by_partial_link_text(self.json_ValueToFind)
+                    elements.find_element(By.PARTIAL_LINK_TEXT, self.json_ValueToFind)
 
                 if self.json_GetFieldBy.lower() == "css":
-                    elements == self.driver.find_element_by_css_selector(self.json_ValueToFind)
+                    elements == self.driver.find_element(By.CSS_SELECTOR, self.json_ValueToFind)
 
                 print("get_text: " + self.json_ValueToFind)
                 print("Text Value: " + elements.text)

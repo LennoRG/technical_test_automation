@@ -1,6 +1,6 @@
+import json
 import time
 from behave import *
-from selenium  import *
 from src.Functions.functions import Functions as Test
 from selenium.webdriver.common.by import *
 use_step_matcher("re")
@@ -25,6 +25,10 @@ class Saucedemo_prueba(Test):
     @then(('Tap on the login button'))
     def tap_on_the_login(self):
         Test.get_elements(self, "login_btn").click()
+        self.driver.implicitly_wait(10)
+        assert Test.get_text(self, "title") == "PRODUCTS"
 
-        time.sleep(5)
-
+        
+    @then(('Add products to cart'))
+    def step_function(self):
+        print("OK ✅")
