@@ -26,7 +26,14 @@ class Saucedemo_prueba(Test):
     def tap_on_the_login(self):
         Test.get_elements(self, "login_btn").click()
         self.driver.implicitly_wait(10)
-        assert Test.get_text(self, "title") == "PRODUCTS"
+        #assert Test.get_text(self, "title") == "PRODUCTS"
+        
+        titlePage = Test.get_text(self, "title")
+
+        if titlePage == "PRODUCTS":
+            assert titlePage == "PRODUCTS"
+        else:
+            assert titlePage == "PRskmODUCTS"
 
         
     @then(('Add products to cart'))
