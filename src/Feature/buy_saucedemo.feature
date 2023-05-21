@@ -7,3 +7,4 @@ Feature: Buy Saucedemo
      Then Enter user credentials
      Then Tap on the login button
      Then Add products to cart
+     Then Delete products
