@@ -1,18 +1,48 @@
 {
-    "name_user":{
-        "GetFieldBy": "Id",
-        "ValueToFind": "user-name"
+    
+    "info_viaje":{
+        "GetFieldBy": "Xpath",
+        "ValueToFind": "/html/body/header/div/div[2]/nav/ul/li[3]/button"
     },
     
-    "pwd_user":{
-        "GetFieldBy": "Id",
-        "ValueToFind": "password"
+    "estado_vuelo":{
+        "GetFieldBy": "Xpath",
+        "ValueToFind": "/html/body/header/div/div[2]/nav/ul/li[3]/div/ul[3]/li[1]/a"
     },
 
-    "login_btn":{
-        "GetFieldBy": "Id",
-        "ValueToFind": "login-button"
+    "numero_vuelo":{
+        "GetFieldBy": "Xpath",
+        "ValueToFind": "/html/body/main/div/form/div[1]/div/ul/li[2]/label/span[2]"
     },
+
+    "enter_numero_vuelo":{
+        "GetFieldBy": "Xpath",
+        "ValueToFind": "/html/body/main/div/form/div[3]/div[3]/div/label/input"
+    },
+
+    "btn_buscar":{
+        "GetFieldBy": "Xpath",
+        "ValueToFind": "/html/body/main/div/form/div[4]/div/input"
+    },
+
+    "copy_Error":{
+        "GetFieldBy": "Xpath",
+        "ValueToFind": "/html/body/main/div/form/div[4]/div[3]/div/label/span[3]"
+    },
+
+
+    "copy_vacio":{
+        "GetFieldBy": "Xpath",
+        "ValueToFind": "//*[@id='flightNumber.errors']"
+    },
+
+    
+
+
+
+
+
+
 
     "title":{
         "GetFieldBy": "Xpath",

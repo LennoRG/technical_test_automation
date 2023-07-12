@@ -15,7 +15,8 @@ class Inicializar():
     NAVEGADOR = u'Chrome'
 
     if Environment == 'Test':
-        URL = 'https://www.saucedemo.com/'
+        URL = 'https://www.aa.com/homePage.do?locale=es_MX'
 
     if Environment == 'PROD':
         URL = 'https://www.mercadolibre.com.mx/'
+
