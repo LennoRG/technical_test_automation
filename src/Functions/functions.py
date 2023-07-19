@@ -3,6 +3,7 @@ import re
 
 import time
 from telnetlib import EC
+from tkinter import Image
 
 import allure
 import pytest
@@ -33,17 +34,12 @@ class Functions(Inicializar):
         print("---------------------", navegador, "📡", "--------------------- \n")
        
         if navegador == ("Chrome"):
-            '''caps = DesiredCapabilities.CHROME.copy()
-            caps["platform"] = "WINDOWS"
-            caps["browserName"] = "Chrome"
-            caps["ignoreZoomSetting"] = True
-            caps["requireWindowFocus"] = True
-            caps["nativeEvents"] = True'''
             options = OpcionesChrome()
             options.add_argument('start-maximized')
-
-            self.driver = webdriver.Chrome("src/drivers/chromedriver")
-            self.driver.implicitly_wait(10)
+            options.add_argument('--headless=new')
+            #Headless                                                  ,options=options            
+            self.driver = webdriver.Chrome('src/drivers/chromedriver', options=options)
+            self.driver.implicitly_wait(20)
             self.driver.maximize_window()
             self.driver.get(URL)
             self.principal = self.driver.window_handles[0] #FUNCION PARA REGRESAR A LA VENTANA PRINCIPAL
@@ -66,13 +62,7 @@ class Functions(Inicializar):
         time.sleep(1)
         self.driver.quit()
 
-    #################################################################
-    ############### FUNCION RUTA DE CARPETA DEL JSON ################
-    #################################################################
-    '''def __init__(self):
-        self.json_GetFieldBy = None  #VALOR QUE CONTINE ESE ATRIBUTO EN EL JSON INCIO
-        self.json_ValueToFind = None #VALOR QUE CONTINE ESE ATRIBUTO EN EL JSON INCIO'''
-
+    
     def get_json_file(self, file):
         json_path = Inicializar.Json + "/" + file + '.json' #Ruta de la carpeta donde esta el JSON, Mencionada en el archivo Inicializar
         try:
@@ -85,9 +75,7 @@ class Functions(Inicializar):
             pytest.skip(u"get_json_file: No se encontro el archivo " + file)
             Functions.tearDow(self)
 
-    ################################################################################
     ########################### LEO LAS ENTIDADES DEL JSON #########################
-    ################################################################################
     def get_entity(self, entity):    # entity ES LAS ENTIDAD DEL JSON QUE QUIERO LEER
         if self.json_strings is False:
             print("Esta Entity No Existe")  #Si la entidad no existe se imprime
@@ -101,10 +89,7 @@ class Functions(Inicializar):
                 Functions.tearDow(self)
                 return None
 
-
-    ########################################################################################################
     ############### COMPORTAMIENTO DE LAS FUNCIONES DEL JSON, PARA QUE SE EJECUTEN EN EL TEST ##############
-    ########################################################################################################
     def get_elements(self, entity, MyTextElement = None):
         Get_Entity = Functions.get_entity(self, entity)
 
@@ -134,14 +119,14 @@ class Functions(Inicializar):
                 return elements
             except NoSuchElementException:
                 print("get_elements: No se encontro el elemento: " + self.json_ValueToFind)
+                self.screenshots_errors()
                 Functions.tearDow(self)
             except TimeoutError:
+                self.screenshots_errors()
                 print("get_elements: No se encontro el elemento: " + self.json_ValueToFind)
                 Functions.tearDow(self)
 
-    #################################################################################################
     ########################## GET TEXT FUNCIONALIDAD PARA COMPARAR TEXTOS ##########################
-    #################################################################################################
     def get_text(self, entity, MyTextElement = None):
         Get_Entity = Functions.get_entity(self, entity)
 
@@ -174,14 +159,19 @@ class Functions(Inicializar):
 
             except NoSuchElementException:
                 print("get_text: No se encontro el elemento: " +self.json_ValueToFind)
+                self.screenshots_errors()
                 Functions.tearDow(self)
             except TimeoutError:
                 print("get_text: No se encontro el elemento: " +self.json_ValueToFind)
+                self.screenshots_errors()
                 Functions.tearDow(self)
+                
+    def screenshots_errors(self):
+        self.driver.save_screenshot('ImagenError.png')
+        screenshot = Image.open('ImagenError.png')
+        screenshot.show()
 
-    #############################################################################################
     ######################### FUNCION PARA ESPERAR ELEMENTOS  ###################################
-    #############################################################################################
     def esperar_elemento(self, locator, MyTextElement = None):
         Get_Entity = Functions.get_entity(self, locator)
 
@@ -191,21 +181,21 @@ class Functions(Inicializar):
         else:
             try:
                 if self.json_GetFieldBy.lower() == "id":
-                    wait = WebDriverWait(self.driver, 20)  #TIEMPO DE ESPERA
+                    wait = WebDriverWait(self.driver, 3)  #TIEMPO DE ESPERA
                     wait.until(EC.visibility_of_element_located((By.ID, self.json_ValueToFind)))
                     wait.until(EC.element_to_be_clickable((By.ID, self.json_ValueToFind)))
                     print(u"Esperar_Elemento: Se visualizo el elemento " + locator)
                     return True
 
                 if self.json_GetFieldBy.lower() == "name":
-                    wait = WebDriverWait(self.driver, 20)
+                    wait = WebDriverWait(self.driver, 3)
                     wait.until(EC.isibility_of_element_located((By.NAME, self.json_ValueToFind)))
                     wait.until(EC.isibility_of_element_located((By.NAME, self.json_ValueToFind)))
                     print(u"Esperar_Elemento: Se visualizo el elemento " + locator)
                     return True
 
                 if self.json_GetFieldBy.lower() == "xpath":
-                    wait = WebDriverWait(self.driver, 20)
+                    wait = WebDriverWait(self.driver, 3)
                     if MyTextElement is not None:
                         self.json_ValueToFind = self.json_ValueToFind.format(MyTextElement)
                         print(self.json_ValueToFind)
@@ -217,47 +207,16 @@ class Functions(Inicializar):
                         return True
 
                 if self.json_GetFieldBy.lower() == "link":
-                    wait = WebDriverWait(self.driver, 20)
+                    wait = WebDriverWait(self.driver, 3)
                     wait.until(EC.visibility_of_element_located((By.LINK_TEXT, self.json_ValueToFind)))
                     wait.until(EC.EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, self.json_ValueToFind)))
                     print(u"Esperar_Elemento: Se visualizo el elemento " + locator)
                     return True
             except TimeoutError:
                 print(u"Esperar_Elemento: No presente " + locator)
+                self.screenshots_errors
                 Functions.tearDow(self)
             except NoSuchElementException(self):
+                self.screenshots_errors
                 print(u"Esperar_Elemento: No presente " + locator)
-
-    #############################################################################################################
-    ###################################    FUNCION DE SCROLL    #################################################
-    #############################################################################################################
-
-    def scroll_to(self, locator):
-        Get_Entity = Functions.get_entity(self, locator)
-
-        if Get_Entity is None:
-            return print("No se encontro el valor en el Json definido")
-        else:
-            try:
-                if self.json_GetFieldBy.lower() == "id":
-                    localizador = self.driver.find_element(By.ID, self.json_ValueToFind)
-                    self.driver.execute_script("arguments[0].scrollIntoView();", localizador)
-                    print(u"scroll_to: " + locator)
-                    return True
-
-                if self.json_GetFieldBy.lower() == "xpath":
-                    localizador = self.driver.find_element(By.XPATH, self.json_ValueToFind)
-                    self.driver.execute_script("arguments[0].scrollIntoView();", localizador)
-                    print(u"scroll_to: " + locator)
-                    return True
-
-                if self.json_GetFieldBy.lower() == "link":
-                    localizador = self.driver.find_element(By.PARTIAL_LINK_TEXT, self.json_ValueToFind)
-                    self.driver.execute_script("arguments[0].scrollIntoView();", localizador)
-                    print(u"scroll_to: " + locator)
-                    return True
-
-            except TimeoutError:
-                print(u"scroll_to: No presente" + locator)
-                Functions.tearDow(self)
 
