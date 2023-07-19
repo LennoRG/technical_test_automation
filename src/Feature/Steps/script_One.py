@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import json
 import os
 import time
@@ -9,8 +10,15 @@ from selenium.webdriver.support import expected_conditions as EC
 from PIL import Image
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
+import allure
 
 use_step_matcher("re")
+
+@allure.feature(u'Prueba tecnica de Automatizacion')
+@allure.story(u'Aplicacion https://www.aa.com/homePage.do?locale=es_MX')
+@allure.testcase(u'Scrip One Test')
+@allure.severity(allure.severity_level.NORMAL)
+@allure.description(u'Validamos el flujo de busqueda de vuelos')
 
 class Saucedemo_prueba(Test):
     @given(('Open the application'))
@@ -49,7 +57,7 @@ class Saucedemo_prueba(Test):
         
     @then(('Validar resultados de vuelo')) 
     def step_function(self):
-        erroCopy = "Vuelo no encontrado. Intente con otro número o haga la búsqueda por ciudadesss."
+        erroCopy = "Vuelo no encontrado. Intente con otro número o haga la búsqueda por ciudades."
         #assert  Test.get_text(self, "copy_Error") == erroCopy
         
         titleError = Test.get_text(self, "copy_Error")
@@ -79,6 +87,10 @@ class Saucedemo_prueba(Test):
                 screenshot = Image.open('ImagenError.png')
                 screenshot.show()
                 self.driver.quit()'''
+            
+
+            
+            
     
         
    
@@ -90,7 +102,7 @@ class Saucedemo_prueba(Test):
             
         
     '''@then(('Tap on the login button'))
-    def tap_on_the_login(self):
+     def tap_on_the_login(self):
         Test.get_elements(self, "login_btn").click()
         self.driver.implicitly_wait(10)
         #assert Test.get_text(self, "title") == "PRODUCTS"
@@ -101,4 +113,3 @@ class Saucedemo_prueba(Test):
             assert titlePage == "PRODUCTS"
         else:
             assert titlePage == "Products"'''
-            

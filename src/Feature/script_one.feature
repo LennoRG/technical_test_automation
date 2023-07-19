@@ -10,5 +10,4 @@ Feature: Buy Saucedemo
      Then Ingresa nuemero de vuelo
      Then Click en buscar vuelos
      Then Validar resultados de vuelo
-
-
+     

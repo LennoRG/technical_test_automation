@@ -1,7 +1,7 @@
 # technical_test_automation
 
 Activar entorno virtual: source environment/bin/activate
-Run Ejecutar por feature: behave ./src/Feature/buy_saucedemo.feature 
+Run Ejecutar por feature: behave ./src/Feature/script_one.feature 
 Run por Tags = behave --tags=@Buy_Saucedemo ./src/Feature/buy_saucedemo.feature
 
 //--- Ejecutar con Allure para generar reporte ---//
