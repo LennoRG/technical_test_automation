@@ -1,0 +1,23 @@
+pipeline {
+    ange any
+
+    stages {
+        stage('install'){
+            steps {
+                git branch: 'main', url: 'https://github.com/LennoRG/technical_test_automation.git'
+
+                sh 'pip3 --version'
+                sh 'python3 -m venv environment'
+                sh 'source environment/bin/activate'
+                sh 'pip3 install -r requirements.txt'
+                sh 'behave --version'
+            }
+        }
+
+        stage('test'){
+            steps {
+                sh 'behave -f allure_behave.formatter:AllureFormatter -o allure-results src/Feature/script_one.feature --tags=@ScriptOne'
+            }
+        }
+    }
+}

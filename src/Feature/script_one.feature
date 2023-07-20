@@ -1,7 +1,7 @@
 Feature: Buy Saucedemo
 
    @ScriptOne
-   Scenario: Buy
+   Scenario: Informacion Vuelos
      Given Open the application
      When Load the data json
      Then Clinc Informacion de viaje
