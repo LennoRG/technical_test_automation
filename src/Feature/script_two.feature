@@ -1,4 +1,4 @@
-Feature: Buy Saucedemo
+Feature: Script Two Test
 
    @ScriptTwo
    Scenario: Buy
