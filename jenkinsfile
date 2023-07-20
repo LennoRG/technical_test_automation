@@ -10,7 +10,8 @@ pipeline {
                 sh 'python3 -m venv environment'
                 sh 'source environment/bin/activate'
                 sh 'pip3 install -r requirements.txt'
-                bat 'behave --version'
+                sh 'export PATH="/ruta/de/behave:$PATH"'
+                sh 'behave --version'
             }
         }
 
