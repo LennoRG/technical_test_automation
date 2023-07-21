@@ -10,6 +10,7 @@ pipeline {
                 sh 'python3 -m venv environment'
                 sh 'source environment/bin/activate'
                 sh 'pip3 install -r requirements.txt'
+                sh 'pip3 install behave'
                 sh 'behave --version'
             }
         }
