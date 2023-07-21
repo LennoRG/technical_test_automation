@@ -6,7 +6,7 @@ pipeline {
             steps {
                 git branch: 'main', url: 'https://github.com/LennoRG/technical_test_automation.git'
 
-                sh 'pip install --upgrade pip'
+                sh 'pip3 install --upgrade pip'
                 sh 'pip3 --version'
                 sh 'python3 -m venv environment'
                 sh 'source environment/bin/activate'
