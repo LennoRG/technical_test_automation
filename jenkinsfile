@@ -6,7 +6,7 @@ pipeline {
             stage('Mostrar PATH') {
             steps {
                 sh 'echo $PATH'
-            }
+                }
             }
 
             steps {
