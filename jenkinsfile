@@ -2,13 +2,13 @@ pipeline {
     agent any
 
     stages {
-        stage('install'){
-            stage('Mostrar PATH') {
+        stage('Mostrar PATH'){
             steps {
                 sh 'echo $PATH'
-                }
             }
-
+        }
+        
+        stage('install'){
             steps {
                 git branch: 'main', url: 'https://github.com/LennoRG/technical_test_automation.git'
 
