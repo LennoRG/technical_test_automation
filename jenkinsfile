@@ -7,17 +7,17 @@ pipeline {
                 sh 'echo $PATH'
             }
         }
-        
+
         stage('install'){
             steps {
                 git branch: 'main', url: 'https://github.com/LennoRG/technical_test_automation.git'
 
-                sh 'pip3 install --upgrade pip'
+                //sh 'pip3 install --upgrade pip'
                 sh 'pip3 --version'
                 sh 'python3 -m venv environment'
                 sh 'source environment/bin/activate'
                 sh 'pip3 install -r requirements.txt'
-                sh 'python3 -m pip install behave'
+                sh 'which behave'
                 sh 'behave --version'
             }
         }
