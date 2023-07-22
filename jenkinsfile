@@ -14,14 +14,12 @@ pipeline {
 
                 //sh 'pip3 install --upgrade pip'
                 sh 'pip3 --version'
-                sh 'pip3 install behave'
-                sh 'behave --version'
-                /*sh 'python3 -m venv env'
-                sh 'source env/bin/activate'
+                sh 'python3 -m venv envenvironment'
+                sh 'source environment/bin/activate'
                 sh 'pip3 install -r requirements.txt'
                 sh 'python3 -m pip install behave'
                 //sh 'which behave'
-                sh 'behave --version'*/
+                sh 'behave --version'
             }
         }
 
