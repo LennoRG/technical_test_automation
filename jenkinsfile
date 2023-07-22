@@ -15,7 +15,7 @@ pipeline {
                 //sh 'pip3 install --upgrade pip'
                 sh 'pip3 --version'
                 sh 'python3 -m venv env'
-                sh 'source env/bin/activate'
+                sh 'source env/bin/activate.fish'
                 sh 'pip3 install -r requirements.txt'
                 //sh 'which behave'
                 sh 'behave --version'
