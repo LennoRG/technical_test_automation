@@ -16,6 +16,9 @@ class Saucedemo_Buy(buy):
         buy.get_elements(self, "ultimoProdutc").click()
         buy.get_elements(self, "jacket").click()
         
+        time.sleep(1)
+
+        
     @then(('Delete products'))
     def delete_products(self):
         '''buy.get_json_file(self, "jacketRemove").click()'''
@@ -26,6 +29,3 @@ class Saucedemo_Buy(buy):
             assert numCart == "3"
         else:
             assert numCart == "4"
-
-
-        
