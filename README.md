@@ -1,5 +1,8 @@
 # technical_test_automation
 
+Instalar: pip install -r requirements.txt
+
+////
 Activar entorno virtual: source environment/bin/activate
 Run Ejecutar por feature: behave ./src/Feature/script_one.feature 
 Run por Tags = behave --tags=@Buy_Saucedemo ./src/Feature/buy_saucedemo.feature
