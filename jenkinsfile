@@ -16,7 +16,7 @@ pipeline {
                 sh 'pip3 --version'
                 sh 'python3 -m venv environment'
                 sh 'source environment/bin/activate'
-                sh 'pip3 install -r requirements.txt'
+                sh 'pip install -r requirements.tx'
                 //sh 'which behave'
                 sh 'behave --version'
             }
