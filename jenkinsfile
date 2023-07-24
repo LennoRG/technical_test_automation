@@ -23,6 +23,7 @@ pipeline {
             withPythonEnv('python3') {
                 //sh 'python3 -m venv environment'
                 sh 'source .pyenv-python3/bin/activate'
+                sh 'pip3 install behave'
                 sh 'pip3 install -r requirements.txt'
                 //sh 'behave --version'
             }
