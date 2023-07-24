@@ -9,15 +9,16 @@ on:
  workflow_dispatch:
    
 jobs:
-   defaults: 
-      run:
-        working-directory: technical_test_automation
-        
+
    build:
       runs-on: ubuntu-latest
       
       steps:
          - uses: actions/checkout@v3
+
+         - name: Direction
+           run:
+             working-directory: technical_test_automation
          
          - name: Run Environment
            run: 
