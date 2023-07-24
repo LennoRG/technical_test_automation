@@ -31,7 +31,10 @@ pipeline {
 
         stage('Test'){
             steps {
-                sh 'behave ./src/Feature/script_one.feature'
+                withPythonEnv('python3') {
+                    sh 'behave --version'
+                    sh 'behave ./src/Feature/script_one.feature'
+                }
             }
         }
     }
