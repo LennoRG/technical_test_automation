@@ -11,6 +11,10 @@ on:
 jobs:
    build:
       runs-on: ubuntu-latest
+
+      defaults:
+      run:
+        working-directory: technical_test_automation
       
       steps:
          - uses: actions/checkout@v3
