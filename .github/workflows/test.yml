@@ -33,6 +33,7 @@ jobs:
            run: |
              behave --version    
              behave ./src/Feature/script_one.feature 
+           working-directory: technical_test_automation/src/Feature
             
              
  
