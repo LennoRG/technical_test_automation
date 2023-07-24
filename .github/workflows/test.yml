@@ -1,5 +1,5 @@
-on:
 name: Automation Testing
+on:
 
  push:
    branches: ['main']
