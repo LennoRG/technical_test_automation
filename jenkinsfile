@@ -14,8 +14,6 @@ pipeline {
 
                 //sh 'pip3 install --upgrade pip'
                 sh 'pip3 --version'
-                sh 'python3 -m venv environment'
-                sh 'source environment/bin/activate'
                 
             }
         }
@@ -23,6 +21,8 @@ pipeline {
         stage('Install Dependencies') {
          steps {
             withPythonEnv('python3') {
+                //sh 'python3 -m venv environment'
+                sh 'source .pyenv-python3/bin/activate'
                 sh 'pip3 install -r requirements.txt'
                 //sh 'behave --version'
             }
