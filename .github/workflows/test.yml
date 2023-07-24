@@ -15,11 +15,7 @@ jobs:
       
       steps:
          - uses: actions/checkout@v3
-
-         - name: Direction
-           run:
-             working-directory: technical_test_automation
-         
+                  
          - name: Run Environment
            run: 
              #pip3 --version
