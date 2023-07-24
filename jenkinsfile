@@ -31,7 +31,7 @@ pipeline {
 
         stage('Test'){
             steps {
-                sh 'behave -f allure_behave.formatter:AllureFormatter -o allure-results src/Feature/script_one.feature --tags=@ScriptOne'
+                sh 'behave ./src/Feature/script_one.feature'
             }
         }
     }
