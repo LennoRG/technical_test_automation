@@ -8,6 +8,11 @@ on:
    
  workflow_dispatch:
    
+defaults:
+  - &default_settings
+    run: echo "Comando predeterminado"
+    working-directory: /technical_test_automation/src/Feature
+
 jobs:
 
    build:
@@ -15,7 +20,7 @@ jobs:
       
       steps:
          - uses: actions/checkout@v3
-                  
+
          - name: Run Environment
            run: 
              #pip3 --version
