@@ -22,7 +22,7 @@ pipeline {
 
         stage('Install Dependencies') {
          steps {
-            withPythonEnv('Python3') {
+            withPythonEnv('technical_test_automation') {
                 sh 'pip3 install -r requirements.txt'
                 //sh 'behave --version'
             }
