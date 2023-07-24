@@ -22,7 +22,7 @@ pipeline {
 
         stage('Install Dependencies') {
          steps {
-            withPythonEnv('/usr/bin/python3.11') {
+            withPythonEnv('environment/bin/python3.11') {
                 sh 'pip3 install -r requirements.txt'
                 sh 'behave --version'
             }
