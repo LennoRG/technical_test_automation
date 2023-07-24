@@ -17,11 +17,16 @@ jobs:
          
          - name: Run Environment
            run: 
-             pip3 --version
+             #pip3 --version
              python3 -m venv environment
+             
+        - name: Run Environment Activate
+           run: 
              source environment/bin/activate
+        
+        - name: Install Requirements
+           run: 
              pip3 install -r requirements.txt
-
 
          - name: Run Test
            run: 
