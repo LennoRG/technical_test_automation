@@ -16,11 +16,20 @@ pipeline {
                 sh 'pip3 --version'
                 sh 'python3 -m venv environment'
                 sh 'source environment/bin/activate'
-                sh 'pip3 install -r requirements.txt'
+                //sh 'pip3 install -r requirements.txt'
                 //sh 'which behave'
-                sh 'behave --version'
+                //sh 'behave --version'
             }
         }
+
+        stage('Install Dependencies') {
+         steps {
+            withPythonEnv('/usr/bin/python3.11') {
+                sh 'pip3 install -r requirements.txt'
+                sh 'behave --version'
+            }
+         }
+      }
 
         stage('Test'){
             steps {
