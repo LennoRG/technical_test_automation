@@ -30,7 +30,7 @@ jobs:
 
          - name: Run Test
            run: 
-             behave --version    
+             #behave --version    
              behave -f allure_behave.formatter:AllureFormatter -o allure-results src/Feature/script_one.feature --tags=@ScriptOne
              
  
