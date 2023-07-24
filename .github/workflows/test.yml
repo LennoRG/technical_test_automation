@@ -7,11 +7,7 @@ on:
    branches: ['main']
    
  workflow_dispatch:
-   
-defaults:
-  - &default_settings
-    run: echo "Comando predeterminado"
-    working-directory: /technical_test_automation/src/Feature
+ working-directory: /technical_test_automation/src/Feature
 
 jobs:
 
