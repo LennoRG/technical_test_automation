@@ -2,7 +2,7 @@
 
 Instalar: pip install -r requirements.txt
 
-////
+//----------- //
 Activar entorno virtual: source environment/bin/activate
 Run Ejecutar por feature: behave ./src/Feature/script_one.feature 
 Run por Tags = behave --tags=@Buy_Saucedemo ./src/Feature/buy_saucedemo.feature
@@ -14,7 +14,6 @@ Run por Tags = behave --tags=@Buy_Saucedemo ./src/Feature/buy_saucedemo.feature
 2.- allure generate src/allure-results —output -o src/allure-reports —clean && allure open —port 5000
 
 3.- allure serve src/allure-results
-
 
 
 // ----------- Build Steps Jenkins ----------- //
