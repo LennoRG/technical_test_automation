@@ -14,7 +14,7 @@ class Scrip_Two(Test):
         
     @then(('Validar resultados de vuelo vacio'))
     def resultado_vuelo_vacio(self):
-        copyVacio = "Debe ingresar el número djjel vuelo."
+        copyVacio = "Debe ingresar el número del vuelo."
         titleVacio = Test.get_text(self, "copy_vacio")
         
         if titleVacio == copyVacio:
