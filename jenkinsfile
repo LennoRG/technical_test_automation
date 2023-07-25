@@ -30,7 +30,7 @@ pipeline {
         stage('Run Test'){
             steps {
                 withPythonEnv('python3') {
-                    sh 'behave -f allure_behave.formatter:AllureFormatter -o allure-results src/Feature/script_one.feature --tags=@ScriptOne'
+                    sh 'behave -f allure_behave.formatter:AllureFormatter -o allure-results src/Feature/script_one.feature --tags=@ScriptOne,@ScriptTwo'
                 }
             }
         }
