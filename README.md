@@ -18,9 +18,9 @@ Run por Tags = behave --tags=@Buy_Saucedemo ./src/Feature/buy_saucedemo.feature
 
 
 // -------- Build Steps Jenkins-------- //
-pip3 --version
-python3 -m venv environment
-source environment/bin/activate
-pip3 install -r requirements.txt
-behave --version    
-behave -f allure_behave.formatter:AllureFormatter -o allure-results src/Feature/script_one.feature --tags=@ScriptOne
+1.- pip3 --version
+2.- python3 -m venv environment
+3.- source environment/bin/activate
+4.- pip3 install -r requirements.txt
+5.- behave --version    
+6.- behave -f allure_behave.formatter:AllureFormatter -o allure-results src/Feature/script_one.feature --tags=@ScriptOne
