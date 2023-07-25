@@ -11,10 +11,8 @@ pipeline {
         stage('Branches'){
             steps {
                 git branch: 'main', url: 'https://github.com/LennoRG/technical_test_automation.git'
-
                 //sh 'pip3 install --upgrade pip'
                 sh 'pip3 --version'
-                
             }
         }
 
@@ -29,7 +27,7 @@ pipeline {
          }
       }
 
-        stage('Test'){
+        stage('Run Test'){
             steps {
                 withPythonEnv('python3') {
                     sh 'behave -f allure_behave.formatter:AllureFormatter -o allure-results src/Feature/script_one.feature --tags=@ScriptOne'

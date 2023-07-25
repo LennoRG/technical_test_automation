@@ -12,7 +12,7 @@ class Scrip_Two(Test):
     def numero_vuelo_vacio(self):  
         Test.get_elements(self, "enter_numero_vuelo").click()
         
-    ''' @then(('Validar resultados de vuelo vacio'))
+    @then(('Validar resultados de vuelo vacio'))
     def resultado_vuelo_vacio(self):
         copyVacio = "Debe ingresar el número djjel vuelo."
         titleVacio = Test.get_text(self, "copy_vacio")
@@ -25,5 +25,5 @@ class Scrip_Two(Test):
             #screenshot = Image.open('ImagenError.png')
             #screenshot.show()
             assert titleVacio == copyVacio
-            self.driver.quit()'''
+            self.driver.quit()
         
