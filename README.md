@@ -17,7 +17,7 @@ Run por Tags = behave --tags=@Buy_Saucedemo ./src/Feature/buy_saucedemo.feature
 
 
 
-// --------- Build Steps Jenkins--------- //
+// ---------- Build Steps Jenkins---------- //
 1.- pip3 --version
 2.- python3 -m venv environment
 3.- source environment/bin/activate
