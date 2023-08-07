@@ -17,15 +17,15 @@ pipeline {
         }
 
         stage('Install Dependencies') {
-         steps {
-            withPythonEnv('python3') {
-                //sh 'python3 -m venv environment'
-                sh 'pip3 install behave'
-                sh 'pip3 install -r requirements.txt'
-                sh 'behave --version'
+            steps {
+                withPythonEnv('python3') {
+                    //sh 'python3 -m venv environment'
+                    sh 'pip3 install behave'
+                    sh 'pip3 install -r requirements.txt'
+                    sh 'behave --version'
             }
-         }
-      }
+        }
+    }
 
         stage('Run Test'){
             steps {
