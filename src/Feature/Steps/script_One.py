@@ -52,8 +52,8 @@ class Saucedemo_prueba(Test):
         
     @then(('Click en buscar vuelos'))
     def step_function(self):
-          Test.get_elements(self,  "btn_buscar").click()
-          
+        Test.get_elements(self,  "btn_buscar").click()
+        
         
     @then(('Validar resultados de vuelo')) 
     def step_function(self):

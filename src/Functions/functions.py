@@ -32,12 +32,12 @@ class Functions(Inicializar):
         print(Inicializar.basedir)
         self.ventanas = {}
         print("---------------------", navegador, "📡", "--------------------- \n")
-       
+        
         if navegador == ("Chrome"):
             options = OpcionesChrome()
             options.add_argument('start-maximized')
             options.add_argument('--headless=new')
-            #Headless                                                  ,options=options            
+            #Headless                                                  ,options=options
             self.driver = webdriver.Chrome('src/drivers/chromedriver', options=options)
             self.driver.implicitly_wait(20)
             self.driver.maximize_window()
